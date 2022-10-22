@@ -5,11 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: { nunito: "Nunito" },
+      fontFamily: {
+        body: ["Nunito", "sans-serif"],
+      }
     },
+
     colors: {
-      gray: { 100: "#808080", 200: "#323232", 300: "#212121" },
-      white: '#fff',
+      gray: { 100: "#272727", 200: "#323232", 300: "#212121" },
+      white: '#fcfcfc',
       blue: '#0d6eff',
       red: '#dc2626',
       green: '#16a34a',
