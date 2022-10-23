@@ -8,51 +8,51 @@ const Navigation = () => {
     border border-blue rounded-lg
     "
     >
-      <NavLink
+         <NavLink
         to="/"
         end
         className={({ isActive }) => {
-          return `w-full text-base text-center font-nunito m-2.5
+          return `w-full text-base text-center m-2.5
 ${
   isActive
     ? "bg-blue"
-    : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
+    : "bg-gray-200 text-white"
 }
     border-0 cursor-pointer rounded capitalize font-semibold`;
         }}
       >
         Crypto
       </NavLink>
-
       <NavLink
         to="/trending"
         className={({ isActive }) => {
-          return `w-full text-base text-center font-nunito m-2.5
+          return `w-full text-base text-center m-2.5
 ${
   isActive
     ? "bg-blue"
-    : "bg-gray-200 text-gray-100hover:text-blue active:bg-cyan active:text-gray-300"
+    : "bg-gray-200 text-white"
 }
     border-0 cursor-pointer rounded capitalize font-semibold`;
         }}
       >
         Trending
       </NavLink>
-
       <NavLink
         to="/saved"
         className={({ isActive }) => {
-          return `w-full text-base text-center font-nunito m-2.5
+          return `w-full text-base text-center m-2.5
 ${
   isActive
     ? "bg-blue"
-    : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
+    : "bg-gray-200 text-white"
 }
     border-0 cursor-pointer rounded capitalize font-semibold`;
         }}
       >
         Saved
       </NavLink>
+
+
     </nav>
   );
 };
