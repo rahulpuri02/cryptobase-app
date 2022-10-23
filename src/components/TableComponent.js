@@ -39,7 +39,10 @@ function TableComponent() {
                   <span>{data.symbol}</span>
                 </td>
                     <td className='py-4'>{data.name}</td>
-                    <td className='py-4'>{data.current_price}</td>
+                    <td className='py-4'>{new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: "usd"
+                    }).format(data.current_price)}</td>
                     <td className='py-4'>{data.total_volume}</td>
                     <td className='py-4'>{data.market_cap_change_percentage_24h}%</td>
                     <td className={
