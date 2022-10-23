@@ -8,7 +8,7 @@ function TableComponent() {
 
      let {cryptoData} = useContext(CryptoContext);
 
-    console.log(cryptoData);
+   //console.log(cryptoData);
   return (
     <div
     className='flex flex-col mt-9 border border-[#808080] rounded-lg'>
@@ -32,8 +32,7 @@ function TableComponent() {
               </tr>
             </thead>
             <tbody>
-      {
-        cryptoData.map(coin => {
+      {cryptoData.map((coin) => {
             return (
                 <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
                 <td className='py-4 flex items-center uppercase'>
@@ -57,15 +56,11 @@ function TableComponent() {
                     }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
                     <td className='py-4'>${coin.market_cap.toLocaleString()}</td>
                     <td className='py-4 cursor-pointer'><Sparklines data={coin.sparkline_in_7d.price}>
-  <SparklinesLine color="teal"/>
-</Sparklines></td>
-
-                  
-                    
+          <SparklinesLine color="teal"/>
+       </Sparklines></td>    
                 </tr>
-            )
-        })
-      }
+            );
+        })}
             </tbody>
         </table> : null
         }
