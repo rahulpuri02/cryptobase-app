@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CryptoContext } from '../context/CryptoContext'
 
 function TableComponent() {
+
+     let {cryptoData} = useContext(CryptoContext);
+
+    //console.log(test);
   return (
     <div
     className='flex flex-col mt-9 border border-[#808080]'>
-        <table className='w-full table-auto'>
+        {
+            cryptoData ? 
+            <table className='w-full table-auto'>
         <thead
               className="capitalize text-base text-white 
             font-medium border-b border-gray-100
@@ -22,18 +29,26 @@ function TableComponent() {
               </tr>
             </thead>
             <tbody>
-                <tr className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
+      {
+        cryptoData.map(data => {
+            return (
+                <tr key={data.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
                 <td className='py-4'>Assets</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Total Volume</td>
-                    <td>Mkt Cap Change</td>
-                    <td>1H</td>
-                    <td>24HR</td>
-                    <td>7D</td>
+                    <td className='py-4'>{data.name}</td>
+                    <td className='py-4'>Price</td>
+                    <td className='py-4'>Total Volume</td>
+                    <td className='py-4'>Mkt Cap Change</td>
+                    <td className='py-4'>1H</td>
+                    <td className='py-4'>24HR</td>
+                    <td className='py-4'>7D</td>
                 </tr>
+            )
+        })
+      }
             </tbody>
-        </table>
+        </table> : null
+        }
+        
     </div>
   )
 }
