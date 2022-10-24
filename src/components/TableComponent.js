@@ -6,7 +6,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 function TableComponent() {
 
-     let {cryptoData} = useContext(CryptoContext);
+     let {cryptoData, currency} = useContext(CryptoContext);
 
    //console.log(cryptoData);
   return (
@@ -41,9 +41,10 @@ function TableComponent() {
                   <span>{coin.symbol}</span>
                 </td>
                     <td className='py-4'>{coin.name}</td>
-                    <td className='py-4'>{new Intl.NumberFormat("en-IN", {
+                    <td className='py-4'>
+                      {new Intl.NumberFormat("en-IN", {
                       style: "currency",
-                      currency: "usd"
+                      currency: currency,
                     }).format(coin.current_price)}</td>
                     <td className={
                       coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
@@ -54,7 +55,11 @@ function TableComponent() {
                   <td className={
                       coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
                     }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
-                    <td className='py-4'>${coin.market_cap.toLocaleString()}</td>
+                        <td className='py-4'>
+                      {new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(coin.market_cap)}</td>
                     <td className='py-4 cursor-pointer'><Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="teal"/>
        </Sparklines></td>    
