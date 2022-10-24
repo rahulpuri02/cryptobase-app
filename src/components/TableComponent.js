@@ -37,7 +37,7 @@ function TableComponent() {
                 <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
                 <td className='py-4 flex items-center uppercase'>
                   <button className='cursor-pointer'><ImStarEmpty className='w-5 h-5 ml-[5px]'/></button>
-                  <img className='w-6 h-6 mx-3' src={coin?.image} alt="{data.name}" />
+                  <img className='w-6 h-6 mx-3' src={coin?.image} alt={coin.name}/>
                   <span>{coin.symbol}</span>
                 </td>
                     <td className='py-4'>{coin.name}</td>

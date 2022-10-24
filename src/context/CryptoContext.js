@@ -29,7 +29,7 @@ const getSearchResult= async (query) => {
     const data = await fetch(`https://api.coingecko.com/api/v3/search?query=${query}`)
       .then(res => res.json());
       console.log(data)
-      setSearchData(data);
+      setSearchData(data.coins);
 
   }catch(error){
       console.log(error);
