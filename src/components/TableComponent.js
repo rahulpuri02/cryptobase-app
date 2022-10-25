@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { CryptoContext } from '../context/CryptoContext'
 import {ImStarEmpty} from 'react-icons/im'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
+import Pagination from './Pagination';
 
 function TableComponent() {
 
@@ -10,6 +11,7 @@ function TableComponent() {
 
    //console.log(cryptoData);
   return (
+    <>
     <div
     className='flex flex-col mt-9 border border-[#808080] rounded-lg'>
         {
@@ -36,7 +38,7 @@ function TableComponent() {
             return (
                 <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
                 <td className='py-4 flex items-center uppercase'>
-                  <button className='cursor-pointer'><ImStarEmpty className='w-5 h-5 ml-[5px]'/></button>
+                  <button className='cursor-pointer mb-[3px]'><ImStarEmpty className='w-5 h-5 ml-[5px]'/></button>
                   <img className='w-6 h-6 mx-3' src={coin?.image} alt={coin.name}/>
                   <span>{coin.symbol}</span>
                 </td>
@@ -60,7 +62,7 @@ function TableComponent() {
                       style: "currency",
                       currency: currency,
                     }).format(coin.market_cap)}</td>
-                    <td className='py-4 cursor-pointer'><Sparklines data={coin.sparkline_in_7d.price}>
+                    <td className='py-4'><Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="teal"/>
        </Sparklines></td>    
                 </tr>
@@ -68,9 +70,13 @@ function TableComponent() {
         })}
             </tbody>
         </table> : null
-        }
-        
+        }  
     </div>
+    <div className='flex items-center justify-between mt-4 capitalize h-8'>
+      <span>Data Provided By <a className="text-blue" href='http://www.coingecko.com' rel="noreferrer" target={"_blank"}>CoinGecko</a></span>
+  <Pagination/>
+    </div>
+    </>
   )
 }
 

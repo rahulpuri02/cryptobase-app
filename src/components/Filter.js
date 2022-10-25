@@ -2,6 +2,7 @@ import React, { useContext, useRef } from 'react'
 import Search from './Search'
 import  submitIcon from '../assets/submit-icon.svg'
 import { CryptoContext } from '../context/CryptoContext'
+import Sort from './Sort';
 function Filter() {
 
  let {setCurrency, setSortBy} = useContext(CryptoContext);
@@ -32,20 +33,7 @@ function Filter() {
             <img className='w-full h-auto' src={submitIcon} alt="submit-icon" />
             </button>
           </form>
-          <label className='relative flex justify-center items-center'>
-       <span className='font-bold mr-3'>Sort By: </span>
-        <select onClick={handleSort} className='rounded bg-gray-200 text-base pl-2 pr-8 py-0.5 leading-4 capitalize outline-0 focus:border' name="sortby" >
-          {/*market_cap_desc, gecko_desc, gecko_asc, market_cap_asc, market_cap_desc, volume_asc, volume_desc, id_asc, id_desc */}
-          <option value="market_cap_desc">market cap desc</option>
-          <option value="market_cap_asc">market cap asc</option>
-          <option value="gecko_asc">gecko asc</option>
-          <option value="gecko_desc">gecko desc</option>
-          <option value="volume_asc">volume asc</option>
-          <option value="volume_desc">volume desc</option>
-          <option value="id_asc">id asc</option>
-          <option value="id_desc">id desc</option>
-        </select>
-       </label>
+       <Sort />
         </div>
       
     </div>
