@@ -3,9 +3,11 @@ import Search from './Search'
 import  submitIcon from '../assets/submit-icon.svg'
 import { CryptoContext } from '../context/CryptoContext'
 import Sort from './Sort';
+import {BiReset} from 'react-icons/bi'
+
 function Filter() {
 
- let {setCurrency, setSortBy} = useContext(CryptoContext);
+ let {setCurrency, setSortBy, resetPage} = useContext(CryptoContext);
  const currencyRef = useRef(null);
 
  const handleCurrencySubmit = (e) => {
@@ -34,6 +36,9 @@ function Filter() {
             </button>
           </form>
        <Sort />
+       <button className='w-6 ml-4 hover:scale-110 transition-all transition-ease' onClick={resetPage}>
+          <BiReset className='w-full h-full text-blue' />
+       </button>
         </div>
       
     </div>

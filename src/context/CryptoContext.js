@@ -33,7 +33,6 @@ const [totalPages, setTotalPages] = useState(50);
       }
     };
   
-  
 
 const getSearchResult= async (query) => {
  
@@ -48,7 +47,11 @@ const getSearchResult= async (query) => {
   }
 };
 
-
+ const resetPage = () => {
+  setPage(1);
+  setCoinSearch("");
+ }
+ 
 useLayoutEffect(() => {
   getCryptoData();
 },[coinSearch, currency, sortBy, page])
@@ -67,7 +70,8 @@ useLayoutEffect(() => {
           setSortBy,
           page,
           setPage,
-          totalPages}}>
+          totalPages,
+          resetPage}}>
             {children}
         </CryptoContext.Provider>
     )
