@@ -11,6 +11,7 @@ const[currency, setCurrency] = useState("usd");
 const[sortBy, setSortBy] = useState("market_cap_desc")
 const[page, setPage] = useState(1);
 const [totalPages, setTotalPages] = useState(50);
+const [coinData, setCoinData] = useState()
 
     const getCryptoData = async () => {
      
@@ -28,6 +29,19 @@ const [totalPages, setTotalPages] = useState(50);
           .then(res => res.json());
           setCryptoData(coin);
   
+      }catch(error){
+          console.log(error);
+      }
+    };
+  
+    const getCoinData = async (coinId) => {
+     
+      try {
+          const coin = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`)
+          .then(res => res.json());
+          console.log("CoinData:", coin)
+          setCoinData(coin);
+         
       }catch(error){
           console.log(error);
       }
@@ -71,7 +85,9 @@ useLayoutEffect(() => {
           page,
           setPage,
           totalPages,
-          resetPage}}>
+          resetPage,
+          getCoinData,
+          coinData}}>
             {children}
         </CryptoContext.Provider>
     )

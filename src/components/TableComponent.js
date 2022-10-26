@@ -4,6 +4,7 @@ import { CryptoContext } from '../context/CryptoContext'
 import {ImStarEmpty} from 'react-icons/im'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import Pagination from './Pagination';
+import { Link } from 'react-router-dom';
 
 function TableComponent() {
 
@@ -37,14 +38,22 @@ function TableComponent() {
       {cryptoData.map((coin) => {
             return (
                 <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
+
                 <td className='py-4 flex items-center uppercase'>
                   <button className='cursor-pointer mb-[3px]'><ImStarEmpty className='w-5 h-5 ml-[5px]'/></button>
                   <img className='w-6 h-6 mx-3' src={coin?.image} alt={coin.name}/>
-                  <span>{coin.symbol}</span>
+                  <span>
+                        <Link to={`/${coin.id}`} className="cursor-pointer">
+                          {coin.symbol}
+                        </Link>
+                      </span>
                 </td>
-                    <td className='py-4'>{coin.name}</td>
-                    <td className='py-4'>
-                      {new Intl.NumberFormat("en-IN", {
+                <td className="py-4">
+                      <Link to={`/${coin.id}`} className="cursor-pointer">
+                        {coin.name}
+                      </Link>
+                    </td>
+                   <td>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                     }).format(coin.current_price)}</td>
