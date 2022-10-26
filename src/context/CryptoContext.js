@@ -11,7 +11,7 @@ const[currency, setCurrency] = useState("usd");
 const[sortBy, setSortBy] = useState("market_cap_desc")
 const[page, setPage] = useState(1);
 const [totalPages, setTotalPages] = useState(50);
-const [coinData, setCoinData] = useState()
+const [coinData, setCoinData] = useState();
 
     const getCryptoData = async () => {
      
@@ -87,7 +87,7 @@ useLayoutEffect(() => {
           totalPages,
           resetPage,
           getCoinData,
-          coinData}}>
+          coinData,}}>
             {children}
         </CryptoContext.Provider>
     )
