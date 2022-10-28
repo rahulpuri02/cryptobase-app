@@ -1,7 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import  ReactDOM  from 'react-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CryptoContext } from '../context/CryptoContext';
+import Chart from './Chart';
+import HighLowIndicator from './HighLowIndicator';
+
 
 const CoinDetails = () => {
 
@@ -84,7 +87,10 @@ const CoinDetails = () => {
 
              {/*Indicator */}
              <div className='flex w-full mt-4 justify-between'>
-              Indicator
+              <HighLowIndicator 
+              currentPrice={coin.market_data.current_price[currency]}                    
+              high={coin.market_data.high_24h[currency]}             
+              low={coin.market_data.low_24h[currency]} />
              </div>
 
                {/*After Indicator */}
@@ -113,19 +119,13 @@ const CoinDetails = () => {
              <div className='flex w-full mt-4 justify-between'>
             <div className='flex flex-col'>
                 <span className='text-sm capitalize text-gray-100'>Max Supply</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
-                      style: "currency",
-                      currency: currency,
-                      minimumFractionDigits: 0,
-                    }).format(coin.market_data.max_supply)}</h2>
+                <h2 className='text-base font-semibold'>{
+                coin.market_data.max_supply.toLocaleString()}
+                  </h2>
             </div>
             <div>
                 <span className='text-sm capitalize text-gray-100'>Circulating Supply</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
-                      style: "currency",
-                      currency: currency,
-                      minimumFractionDigits: 0,
-                    }).format(coin.market_data.circulating_supply)}</h2>
+                <h2 className='text-base font-semibold'>{coin.market_data.circulating_supply.toLocaleString()}</h2>
             </div>
              </div> 
 
@@ -226,8 +226,8 @@ const CoinDetails = () => {
             </div>
              {/*Right Side */}
 
-             <div className='flex flex-col w-[55%] h-full pl-4 bg-green'>
-             right
+             <div className='flex flex-col w-[55%] h-full pl-4'>
+           <Chart id={coin.id}/>
              </div>
 
             </div> 
