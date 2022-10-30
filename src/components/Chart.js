@@ -22,7 +22,7 @@ function CustomTooltip({ payload, label, active, currency = "usd" }) {
           {
             style: "currency",
             currency: currency,
-            minimumFractionDigits: 5,
+            maximumFractionDigits: 2,
           }
         ).format(payload[0].value)}`}</p>
       </div>
