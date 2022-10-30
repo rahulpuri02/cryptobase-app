@@ -42,37 +42,38 @@ function Pagination() {
    }
 
 
-  return (
-    <div className='flex items-center'>
-        <ul className='flex items-center justify-end text-sm'>
-       <li className='flex items-center'>
-        <button  onClick={prevPage} className='outline-0 hover:w-8'>
-    <img className='w-full h-auto rotate-180' src={paginationArrow} alt="arrow-right" /> 
-     </button></li> 
-     {
-        (page + 1 === TotalNumber || page === TotalNumber) ? <li><button onClick={multiStepPrev} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-lg'>...</button></li> : null
-     } 
-      {
-         (page -1 !== 0) ? <li><button onClick={prevPage} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{page - 1 }</button></li>: null
-        }
-        <li><button className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-gray-300 bg-blue mx-1.5'>{page }</button></li>
+  return ( 
+  
+    <div className= "flex items-center">
+    <ul className='flex items-center justify-end text-sm'>
+   <li className='flex items-center'>
+    <button  onClick={prevPage} className='outline-0 hover:w-8'>
+<img className='w-full h-auto rotate-180' src={paginationArrow} alt="arrow-right" /> 
+ </button></li> 
+ {
+    (page + 1 === TotalNumber || page === TotalNumber) ? <li><button onClick={multiStepPrev} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-lg'>...</button></li> : null
+ } 
+  {
+     (page -1 !== 0) ? <li><button onClick={prevPage} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{page - 1 }</button></li>: null
+    }
+    <li><button className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-gray-300 bg-blue mx-1.5'>{page }</button></li>
 
-       {
-        (page +1 !== TotalNumber && page !== TotalNumber) ? 
-        <li ><button onClick={nextPage} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{page + 1 }</button></li> : null
-       }
-       {
-        page +1 !== TotalNumber && page !== TotalNumber ?  <li><button onClick={multiStepNext} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-lg'>...</button></li> : null
-       }
-       {
-        page !== TotalNumber ? <li ><button onClick={() => setPage(TotalNumber)} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{TotalNumber}</button></li> : null
-       }
-       <li>
-        <button  onClick={nextPage} className='ml-1.5 flex items-center'>
-        <img className='w-full h-auto ' src={paginationArrow} alt="arrow-left" /> 
-        </button></li>
-        </ul>
-    </div>
+   {
+    (page +1 !== TotalNumber && page !== TotalNumber) ? 
+    <li ><button onClick={nextPage} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{page + 1 }</button></li> : null
+   }
+   {
+    page +1 !== TotalNumber && page !== TotalNumber ?  <li><button onClick={multiStepNext} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center text-lg'>...</button></li> : null
+   }
+   {
+    page !== TotalNumber ? <li ><button onClick={() => setPage(TotalNumber)} className='outline-0 rounded-full w-9 h-9 flex items-center justify-center bg-gray-200 mx-1.5'>{TotalNumber}</button></li> : null
+   }
+   <li>
+    <button  onClick={nextPage} className='ml-1.5 flex items-center'>
+    <img className='w-full h-auto ' src={paginationArrow} alt="arrow-left" /> 
+    </button></li>
+    </ul>
+</div>
   )
 }
 
