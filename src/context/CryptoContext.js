@@ -28,6 +28,7 @@ const [coinData, setCoinData] = useState();
           const coin = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=10&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d`)
           .then(res => res.json());
           setCryptoData(coin);
+         
   
       }catch(error){
           console.log(error);
@@ -38,9 +39,9 @@ const [coinData, setCoinData] = useState();
      
       try {
           const coin = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`)
-          .then(res => res.json());
-          console.log("CoinData:", coin)
+          .then(res => res.json())
           setCoinData(coin);
+          console.log(coin);
          
       }catch(error){
           console.log(error);
@@ -53,7 +54,6 @@ const getSearchResult= async (query) => {
   try {
     const data = await fetch(`https://api.coingecko.com/api/v3/search?query=${query}`)
       .then(res => res.json());
-      console.log(data)
       setSearchData(data.coins);
 
   }catch(error){

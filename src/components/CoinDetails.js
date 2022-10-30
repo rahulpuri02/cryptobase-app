@@ -237,7 +237,7 @@ const CoinDetails = () => {
              </div>
               <div className="absolute bottom-8 right-8 flex items-center">
                 {
-                  coin.links.repos_url.github[0] && 
+                  coin.links.repos_url.github[0] && (
                   <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={coin.links.repos_url.github[0]}>
                    <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -259,10 +259,10 @@ const CoinDetails = () => {
                     <path fill="rgba(0, 0, 0, 0)" d="M0 0h24v24H0z" />
                   </svg>
                   </a>
-                }
-              {
-             coin.links.twitter_screen_name &&
-            <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://twitter.com${coin.links.twitter_screen_name}`}>
+                )}
+              
+             {coin.links.twitter_screen_name && (
+            <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://twitter.com/${coin.links.twitter_screen_name}`}>
              <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
@@ -282,10 +282,10 @@ const CoinDetails = () => {
                     <path fill="rgba(0, 0, 0, 0)" d="M0 0h1024v1024H0z" />
                   </svg>
             </a>
-              }
+              )}
               
-              {
-                coin.links.subreddit_url &&
+              
+                {coin.links.subreddit_url && (
                 <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={coin.links.subreddit_url}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -307,10 +307,10 @@ const CoinDetails = () => {
                     <path fill="rgba(0, 0, 0, 0)" d="M0 0h24v24H0z" />
                   </svg>
                 </a>
-              }
-              {
-                coin.links.facebook_username &&
-                <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://facebook.com${coin.links.facebook_username}`}>
+              )}
+              
+                {coin.links.facebook_username && (
+                <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={`https://facebook.com/${coin.links.facebook_username}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
@@ -331,7 +331,7 @@ const CoinDetails = () => {
                     <path fill="rgba(0, 0, 0, 0)" d="M0 0h24v24H0z" />
                   </svg>
                 </a>
-              }
+              )}
               </div>
             </div> 
             : null

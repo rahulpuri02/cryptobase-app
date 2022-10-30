@@ -26,7 +26,7 @@ function TrendingCoin({data}) {
                 <h3 className='text-base flex items-center my-0.5'>
                 <span className='text-gray-100'>Price (in btc): &nbsp; </span>
                 <span>
-                     BTC{new Intl.NumberFormat("en-IN", {
+                     {new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: "btc",
                       maximumFractionDigits: 5,
@@ -36,7 +36,7 @@ function TrendingCoin({data}) {
                 <h3 className='text-base flex items-center my-0.5'>
                 <span className='text-gray-100'>Score: &nbsp;</span>
                 <span>{data.score}</span> 
-                <img className=' absolute top-2 right-2  w-[18%] h-auto rounded-full' src={data.large} alt={data.name} />  
+                <img className=' absolute top-3 right-2  w-[18%] h-auto rounded-full' src={data.large} alt={data.name} />  
             </h3>
             </>
 
