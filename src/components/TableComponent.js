@@ -70,11 +70,11 @@ function TableComponent() {
                 <th className="py-1">asset</th>
                 <th className="py-1">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1">1h</th>
-                <th className="py-1">24h</th>
+                <th className="py-1 lg:table-cell hidden">1h</th>
+                <th className="py-1 lg:table-cell hidden">24h</th>
                 <th className="py-1 lg:table-cell hidden">7d</th>
-                <th className="py-1 lg:table-cell hidden">Mkt Cap</th>
-                <th className="py-1 lg:table-cell hidden">Last 7 Days</th>
+                <th className="py-1">Mkt Cap</th>
+                <th className="py-1">Last 7 Days</th>
               </tr>
             </thead>
             <tbody>
@@ -101,13 +101,13 @@ function TableComponent() {
                       currency: currency,
                     }).format(coin.current_price)}</td>
                     <td className={
-                      coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
+                      coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4  lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
                     }>{Number(coin.price_change_percentage_1h_in_currency).toFixed(2)}%</td>
                     <td className={
-                      coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
+                      coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4  lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
                     }>{Number(coin.price_change_percentage_24h_in_currency).toFixed(2)}%</td>
                   <td className={
-                      coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
+                      coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4 lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
                     }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
                         <td className='py-4'>
                       {new Intl.NumberFormat("en-IN", {
@@ -121,7 +121,10 @@ function TableComponent() {
             );
         })}
             </tbody>
-        </table> : null
+        </table> : <div className='w-full min-h-[60vh] flex justify-center items-center'>
+          <div className='w-8 h-8 border-4 border-blue rounded-full border-b-gray-200 animate-spin' role="status"/>
+          <span className='ml-2'>Please wait...</span>   
+        </div>
         }  
     </div>
     <div className='flex items-center justify-between mt-4 capitalize h-8'>
