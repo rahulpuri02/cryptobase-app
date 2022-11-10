@@ -25,7 +25,7 @@ function Filter() {
  }
 
   return (
-    <div className='w-full h-12 border-2 border-[#808080] rounded-lg flex items-center justify-between relative'>
+    <div className='w-full h-12 border-2 border-[#808080] rounded-lg flex flex-col md:flex-row items-center justify-between relative'>
         <Search/>
         <div className='flex mr-7'>
           <form onSubmit={handleCurrencySubmit} className='relative flex items-center mr-12 '>

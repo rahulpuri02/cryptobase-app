@@ -68,13 +68,13 @@ function TableComponent() {
             >
               <tr>
                 <th className="py-1">asset</th>
-                <th className="py-1">name</th>
+                <th className="py-1 hidden md:table-cell">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1 lg:table-cell hidden">1h</th>
-                <th className="py-1 lg:table-cell hidden">24h</th>
-                <th className="py-1 lg:table-cell hidden">7d</th>
-                <th className="py-1">Mkt Cap</th>
-                <th className="py-1">Last 7 Days</th>
+                <th className="py-1 hidden lg:table-cell">1h</th>
+                <th className="py-1 hidden sm:table-cell">24h</th>
+                <th className="py-1 hidden lg:table-cell">7d</th>
+                <th className="py-1 hidden lg:table-cell">Mkt Cap</th>
+                <th className="py-1 hidden sm:table-cell">Last 7 Days</th>
               </tr>
             </thead>
             <tbody>
@@ -91,7 +91,7 @@ function TableComponent() {
                         </Link>
                       </span>
                 </td>
-                <td className="py-4">
+                <td className="py-4 hidden md:table-cell">
                       <Link to={`/${coin.id}`} className="cursor-pointer">
                         {coin.name}
                       </Link>
@@ -101,20 +101,20 @@ function TableComponent() {
                       currency: currency,
                     }).format(coin.current_price)}</td>
                     <td className={
-                      coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4  lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
+                      coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4 hidden lg:table-cell' : 'text-red py-4 hidden lg:table-cell'
                     }>{Number(coin.price_change_percentage_1h_in_currency).toFixed(2)}%</td>
                     <td className={
-                      coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4  lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
+                      coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4 hidden sm:table-cell' : 'text-red py-4 hidden sm:table-cell'
                     }>{Number(coin.price_change_percentage_24h_in_currency).toFixed(2)}%</td>
                   <td className={
-                      coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4 lg:table-ceil hidden' : 'text-red py-4 lg:table-ceil hidden'
+                      coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4 hidden lg:table-cell' : 'text-red py-4 hidden lg:table-cell'
                     }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
-                        <td className='py-4'>
+                        <td className='py-4 hidden lg:table-cell'>
                       {new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                     }).format(coin.market_cap)}</td>
-                    <td className='py-4'><Sparklines data={coin.sparkline_in_7d.price}>
+                    <td className='py-4 hidden sm:table-cell'><Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="teal"/>
        </Sparklines></td>    
                 </tr>
@@ -127,7 +127,7 @@ function TableComponent() {
         </div>
         }  
     </div>
-    <div className='flex items-center justify-between mt-4 capitalize h-8'>
+    <div className='flex flex-col md:flex-row items-center justify-between mt-4 gap-3 capitalize h-8'>
       <span>Data Provided By <a className="text-blue" href='http://www.coingecko.com' rel="noreferrer" target={"_blank"}>CoinGecko</a></span>
   <Pagination/>
     </div>

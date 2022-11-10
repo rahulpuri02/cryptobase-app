@@ -82,6 +82,7 @@ useLayoutEffect(() => {
           resetPage,
           getCoinData,
           coinData,
+          error,
           }}>
             {children}
         </CryptoContext.Provider>
