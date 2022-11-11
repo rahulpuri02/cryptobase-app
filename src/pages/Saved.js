@@ -53,9 +53,9 @@ const {saveData} = useContext(StorageContext);
  let {currency} = useContext(CryptoContext);
 
   return (
-    <section className='w-[80%] h-full flex flex-col mt-16 mb-24 relative'>
+    <section className='w-[80%] h-full flex flex-col mt-3 mb-24 relative'>
        <div
-        className='w-full min-h-[60vh] py-8  mt-9 border border-[#808080] rounded-lg'>
+        className='w-full min-h-[60vh] pt-1.5 mt-9 border border-[#808080] rounded-lg'>
         {
           saveData ?
         (
@@ -65,58 +65,58 @@ const {saveData} = useContext(StorageContext);
               font-medium border-b border-gray-100
               "
               >
-                <tr>
-                  <th className="py-1">asset</th>
-                  <th className="py-1">name</th>
-                  <th className="py-1">price</th>
-                  <th className="py-1">1h</th>
-                  <th className="py-1">24h</th>
-                  <th className="py-1 lg:table-cell hidden">7d</th>
-                  <th className="py-1 lg:table-cell hidden">Mkt Cap</th>
-                  <th className="py-1 lg:table-cell hidden">Last 7 Days</th>
-                </tr>
-              </thead>
-              <tbody>
+              <tr>
+                <th className="py-1">asset</th>
+                <th className="py-1 hidden md:table-cell">name</th>
+                <th className="py-1">price</th>
+                <th className="py-1 hidden lg:table-cell">1h</th>
+                <th className="py-1 hidden sm:table-cell">24h</th>
+                <th className="py-1 hidden lg:table-cell">7d</th>
+                <th className="py-1 hidden lg:table-cell">Mkt Cap</th>
+                <th className="py-1 hidden sm:table-cell">Last 7 Days</th>
+              </tr>
+            </thead>
+            <tbody>
         {saveData.map((coin) => {
               return (
-                  <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
-  
-                  <td className='py-4 flex items-center uppercase'>
-                  <SaveBtn coin={coin} />
-                    <img className='w-6 h-6 mx-3' src={coin?.image} alt={coin.name}/>
-                    <span>
-                          <Link to={`/${coin.id}`} className="cursor-pointer">
-                            {coin.symbol}
-                          </Link>
-                        </span>
-                  </td>
-                  <td className="py-4">
+                <tr key={coin.id} className='text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0'>
+
+                <td className='py-4 flex items-center uppercase'>
+                <SaveBtn coin={coin} />
+                  <img className='w-6 h-6 mx-3' src={coin?.image} alt={coin.name}/>
+                  <span>
                         <Link to={`/${coin.id}`} className="cursor-pointer">
-                          {coin.name}
+                          {coin.symbol}
                         </Link>
-                      </td>
-                     <td>{new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: currency,
-                      }).format(coin.current_price)}</td>
-                      <td className={
-                        coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
-                      }>{Number(coin.price_change_percentage_1h_in_currency).toFixed(2)}%</td>
-                      <td className={
-                        coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
-                      }>{Number(coin.price_change_percentage_24h_in_currency).toFixed(2)}%</td>
+                      </span>
+                </td>
+                <td className="py-4 hidden md:table-cell">
+                      <Link to={`/${coin.id}`} className="cursor-pointer">
+                        {coin.name}
+                      </Link>
+                    </td>
+                   <td>{new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(coin.current_price)}</td>
                     <td className={
-                        coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'
-                      }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
-                          <td className='py-4'>
-                        {new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: currency,
-                      }).format(coin.market_cap)}</td>
-                      <td className='py-4'><Sparklines data={coin.sparkline_in_7d.price}>
-            <SparklinesLine color="teal"/>
-         </Sparklines></td>    
-                  </tr>
+                      coin.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4 hidden lg:table-cell' : 'text-red py-4 hidden lg:table-cell'
+                    }>{Number(coin.price_change_percentage_1h_in_currency).toFixed(2)}%</td>
+                    <td className={
+                      coin.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4 hidden sm:table-cell' : 'text-red py-4 hidden sm:table-cell'
+                    }>{Number(coin.price_change_percentage_24h_in_currency).toFixed(2)}%</td>
+                  <td className={
+                      coin.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4 hidden lg:table-cell' : 'text-red py-4 hidden lg:table-cell'
+                    }>{Number(coin.price_change_percentage_7d_in_currency).toFixed(2)}%</td>  
+                        <td className='py-4 hidden lg:table-cell'>
+                      {new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(coin.market_cap)}</td>
+                    <td className='py-4 hidden sm:table-cell'><Sparklines data={coin.sparkline_in_7d.price}>
+          <SparklinesLine color="teal"/>
+       </Sparklines></td>    
+                </tr>
               );
           })}
               </tbody>
@@ -127,6 +127,7 @@ const {saveData} = useContext(StorageContext);
        </h1>
         } 
          </div>
+         <div className='w-full text-center mt-2'>Developed By <a className="text-blue" href='https://www.linkedin.com/in/rahulpuri02' rel="noreferrer" target={"_blank"}>Rahul Puri</a></div>
       
       </section>
   )

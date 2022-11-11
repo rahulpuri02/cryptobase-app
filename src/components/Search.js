@@ -28,16 +28,16 @@ const selectCoin = (coin) => {
  return (
   <>
   <form  onSubmit={handleSubmit} 
-  className='w-96 relative flex items-center ml-7'>
-  <input onChange={handleInput} value={searchText} className="w-full rounded bg-gray-200 placeholder:pl-2 outline-0 border border-transparent
-  focus:border-[#808080]" type="text" name="search" placeholder='search here...'/>
-  <button className="absolute right-1" type="submit">
-  <BiSearch className='h-5 w-5 cursor-pointer'/>
+  className='w-full relative flex items-center px-2 md:px-4 py-2'>
+  <input onChange={handleInput} value={searchText} className="w-full text-sm rounded bg-gray-200 placeholder:pl-2 outline-0 border border-transparent
+  focus:border-[#808080]" type="text" name="search" placeholder='search here..'/>
+  <button className="absolute right-2 md:right-5" type="submit">
+  <BiSearch className='w-4 h-auto cursor-pointer'/>
   </button>
  </form>
  {
   searchText.length > 0 ?
-  <ul className='absolute top-11 right-0 w-96 h-96 rounded overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 backdrop-blur-md'>
+  <ul className='absolute top-11 right-0 w-full h-[200px] md:h-[300px] rounded overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 backdrop-blur-md'>
   {
     searchData ? 
     searchData.map(coin => { return <li className='flex items-center ml-4 my-2 cursor-pointer'
