@@ -11,7 +11,7 @@ const Logo = () => {
     onClick={resetPage}
       to="/"
       className="
-     absolute top-[1.5rem] left-[1.5rem] [text-decoration:none]
+     absolute top-[0.5rem] md:top-[1.5rem] left-[1.5rem] [text-decoration:none]
 text-lg text-[#0d6eff] flex items-center
      "
     >

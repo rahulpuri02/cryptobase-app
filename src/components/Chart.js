@@ -96,7 +96,7 @@ const Chart = ({ id }) => {
       <ChartComponent data={chartData} currency={currency} type={type} />
       <div className="flex">
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2   bg-opacity-25 rounded capitalize ${
             type === "prices"
               ? "bg-gray-100 text-white"
               : "bg-gray-200 text-gray-100"
@@ -125,9 +125,8 @@ const Chart = ({ id }) => {
         >
           total volume
         </button>
-
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-5 md:ml-2 bg-opacity-25 rounded capitalize ${
             days === 7 ? "bg-gray-100 text-white" : "bg-gray-200 text-gray-100"
           }`}
           onClick={() => setDays(7)}

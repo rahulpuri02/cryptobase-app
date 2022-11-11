@@ -24,16 +24,16 @@ const CoinDetails = () => {
     <div className='fixed top-0 w-full h-full bg-gray-200 bg-opacity-30 first-letter:first-line:
     backdrop-blur-sm flex items-center justify-center'
     onClick={close}>
-        <div onClick={(e) => e.stopPropagation()} className='w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative'>
+        <div onClick={(e) => e.stopPropagation()} className=' w-full h-full sm:w-[95%] md:w-[85%] md:h-[70%] lg:h-[70%] lg:w-[60%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative'>
         {
-            coin ? <div className='flex items-center justify-between h-full w-full p-4 '>
+            coin ? <div className='flex flex-col md:flex-row items-center justify-between h-full w-full p-4 overflow-y-scroll md:overflow-y-hidden'>
            
            {/*Left Side */}
 
-             <div className='flex flex-col w-[45%] h-full pr-2'>
+             <div className='flex flex-col w-full md:w-[45%] h-full pr-2'>
             <div className='flex w-full items-center'>
-                <img className="w-12 h-12 mx-1.5" src={coin.image.large} alt={coin.image.large} />
-                <h1 className='text-xl capitalize font-medium'>{coin.name}</h1>
+                <img className="h-6 w-6  md:w-12 md:h-12 mx-1.5" src={coin.image.large} alt={coin.image.large} />
+                <h1 className='text-base md:text-xl capitalize font-medium'>{coin.name}</h1>
                 <span className='text-sm py-0.5 px-2.5 ml-2.5 bg-blue text-blue bg-opacity-25 rounded uppercase'>{coin.symbol}</span>
             </div>
              <div className='flex w-full mt-6 '>
@@ -50,25 +50,25 @@ const CoinDetails = () => {
                      </svg>
                     </div>
                     </div>
-                    <h2>{new Intl.NumberFormat("en-IN", {
+                    <h2 className='text-sm md:text-normal'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                     }).format(coin.market_data.current_price[currency])}</h2>
                 </div>
              </div>
 
-             <div className='flex w-full mt-4 justify-between'>
+             <div className='flex flex-col md:flex-row w-full mt-4 gap-2 justify-between'>
             <div className='flex flex-col'>
-                <span className='text-sm capitalize text-gray-100'>Market Cap</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
+                <span className='text-xs md:text-sm capitalize text-gray-100'>Market Cap</span>
+                <h2 className='text-sm font-semibold'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                       minimumFractionDigits: 0,
                     }).format(coin.market_data.market_cap[currency])}</h2>
             </div>
             <div>
-                <span className='text-sm capitalize text-gray-100'>Fully Diluted Valuation</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
+                <span className='w-full flex-wrap text-xs md:text-sm capitalize text-gray-100'>Fully Diluted Valuation</span>
+                <h2 className='text-sm font-semibold'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                       notation: "compact",
@@ -78,7 +78,7 @@ const CoinDetails = () => {
  
              <div className='flex flex-col w-full mt-4 justify-between'>
                 <span className='text-sm capitalize text-gray-100'>Total Volume</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
+                <h2 className='text-sm font-semibold'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                       minimumFractionDigits: 0,
@@ -98,7 +98,7 @@ const CoinDetails = () => {
              <div className='flex w-full mt-4 justify-between'>
             <div className='flex flex-col'>
                 <span className='text-sm capitalize text-gray-100'>Low 24H</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
+                <h2 className='text-sm md:text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                       maximumFractionDigits:1,
@@ -106,7 +106,7 @@ const CoinDetails = () => {
             </div>
             <div>
                 <span className='text-sm capitalize text-gray-100'>High 24H</span>
-                <h2 className='text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
+                <h2 className='text-sm md:text-base font-semibold'>{new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
                       maximumFractionDigits:1,
@@ -119,13 +119,13 @@ const CoinDetails = () => {
              <div className='flex w-full mt-4 justify-between'>
             <div className='flex flex-col'>
                 <span className='text-sm capitalize text-gray-100'>Max Supply</span>
-                <h2 className='text-base font-semibold'>{
+                <h2 className=' text-sm md:text-base font-semibold'>{
                 coin.market_data.max_supply}
                   </h2>
             </div>
             <div>
                 <span className='text-sm capitalize text-gray-100'>Circulating Supply</span>
-                <h2 className='text-base font-semibold'>{coin.market_data.circulating_supply}</h2>
+                <h2 className='text-sm md:text-base font-semibold'>{coin.market_data.circulating_supply}</h2>
             </div>
              </div> 
 
@@ -226,16 +226,15 @@ const CoinDetails = () => {
             </div>
              {/*Right Side */}
 
-             <div className='flex flex-col w-[55%] h-full pl-4'>
+             <div className='relative flex flex-col w-[95%]  mx-auto mt-3 md:w-[55%] h-full md:pl-4'>
            <Chart id={coin.id}/>
 
-           <div>
+           <div className='mt-10 md:mt-none'>
             <h3 className='text-white py-1'><span className='text-gray-100 capitalize mr-1'>Market Cap Rank: </span>{coin.market_cap_rank}</h3>
             <h3 className='text-white py-1'><span className='text-gray-100 capitalize mr-1'>CoinGecko Rank: </span>{coin.coingecko_rank}</h3>
             <h3 className='text-white py-1'><span className='text-gray-100 capitalize mr-1'>CoinGecko Score: </span>{coin.coingecko_score}</h3>
            </div>
-             </div>
-              <div className="absolute bottom-8 right-8 flex items-center">
+           <div className="absolute right-0 bottom-3 flex flex-col  gap-1 items-center">
                 {
                   coin.links.repos_url.github[0] && (
                   <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={coin.links.repos_url.github[0]}>
@@ -333,7 +332,9 @@ const CoinDetails = () => {
                 </a>
               )}
               </div>
-            </div> 
+           </div>
+          
+              </div>
             : <div className='w-full h-full flex justify-center items-center'>
             <div className='w-8 h-8 border-4 border-blue rounded-full border-b-gray-200 animate-spin' role="status"/>
             <span className='ml-2'>Please wait...</span>   
