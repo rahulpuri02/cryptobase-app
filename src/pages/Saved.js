@@ -122,7 +122,7 @@ const {saveData} = useContext(StorageContext);
               </tbody>
           </table>
         )
-       : <h1 className='min-h-[60vh] text-lg text-white flex items-center justify-center'>
+       : <h1 className='min-h-[60vh] text-md md:text-lg text-white flex items-center justify-center'>
         You haven't saved any coin yet!
        </h1>
         } 
