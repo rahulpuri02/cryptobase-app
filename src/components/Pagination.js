@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import paginationArrow from "../assets/pagination-arrow.svg";
 import { CryptoContext } from '../context/CryptoContext';
 
 function Pagination() {
     
 
-   let {page, setPage, totalPages} = useContext(CryptoContext);
+   let {page, setPage} = useContext(CryptoContext);
    
-   const TotalNumber = Math.ceil(totalPages/10);
+   const TotalNumber = 120
 
     const nextPage = () => {
     if(page === TotalNumber){

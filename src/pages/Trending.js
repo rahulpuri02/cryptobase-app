@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom';
 import TrendingCoin from '../components/TrendingCoin';
@@ -14,7 +13,7 @@ const Trending = () => {
         className='w-full min-h-[60vh] py-8 grid grid-cols-1 lg:grid-cols-2 mt-9 border border-[#808080] rounded-lg'>
         {
           trendingData && trendingData.map(coin => 
-          <TrendingCoin key={data.coin_id} data={coin.item} /> 
+          <TrendingCoin key={coin.id} data={coin.item} /> 
           )
         }
         </div>

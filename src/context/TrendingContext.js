@@ -1,4 +1,4 @@
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // create context object
 export const TrendingContext = createContext({});
@@ -26,7 +26,7 @@ export const TrendingProvider = ({ children }) => {
     getTrendingData();
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getTrendingData();
   }, []);
 

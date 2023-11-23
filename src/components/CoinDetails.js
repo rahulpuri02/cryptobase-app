@@ -234,7 +234,7 @@ const CoinDetails = () => {
             <h3 className='text-white py-1'><span className='text-gray-100 capitalize mr-1'>CoinGecko Rank: </span>{coin.coingecko_rank}</h3>
             <h3 className='text-white py-1'><span className='text-gray-100 capitalize mr-1'>CoinGecko Score: </span>{coin.coingecko_score}</h3>
            </div>
-           <div className="absolute right-0 bottom-3 flex flex-col  gap-1 items-center">
+           <div className="absolute right-0 bottom-3 flex flex-col  gap-1.5 md:gap-2 items-center">
                 {
                   coin.links.repos_url.github[0] && (
                   <a className='text-lg px-1' target={"_blank"} rel="noreferrer" href={coin.links.repos_url.github[0]}>

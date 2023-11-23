@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 import { Link } from 'react-router-dom';
 import { StorageContext } from '../context/StorageContext';
 
- const SaveBtn = ({coin}) => {
+const SaveBtn = ({coin}) => {
 
   let {saveCoin, allCoins, removeCoin} = useContext(StorageContext);
   
@@ -49,8 +49,9 @@ import { StorageContext } from '../context/StorageContext';
 );
 };
 
-
 function TableComponent() {
+
+  let {error} = useContext(CryptoContext);
 
      let {cryptoData, currency} = useContext(CryptoContext);
    //console.log(cryptoData);
@@ -122,8 +123,10 @@ function TableComponent() {
         })}
             </tbody>
         </table> : <div className='w-full min-h-[60vh] flex justify-center items-center'>
-          <div className='w-8 h-8 border-4 border-blue rounded-full border-b-gray-200 animate-spin' role="status"/>
-          <span className='ml-2'>Please wait...</span>   
+         {error ? null : (
+           <div className='w-8 h-8 border-4 border-blue rounded-full border-b-gray-200 animate-spin' role="status"/>
+         )}
+          <span className='ml-2'>{error ? '500 | Internal Server Error' : 'Please wait...'}</span>   
         </div>
         }  
     </div>
