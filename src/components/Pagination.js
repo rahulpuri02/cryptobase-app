@@ -7,7 +7,7 @@ function Pagination() {
 
    let {page, setPage} = useContext(CryptoContext);
    
-   const TotalNumber = 1220
+   const TotalNumber = 786
 
     const nextPage = () => {
     if(page === TotalNumber){
