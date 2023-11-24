@@ -14,7 +14,7 @@ function Search() {
   getSearchResult(value)
  }, 2000)
   return (
-  <div className='relative'>
+  <div className='relative w-full'>
   <SearchInput handleSearch={debounceFunc}/>
    </div>
   )

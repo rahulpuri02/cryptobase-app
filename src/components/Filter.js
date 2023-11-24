@@ -1,18 +1,21 @@
-import React from 'react'
-import Search from './Search'
-import Sort from './Sort';
+import React from "react";
+import Search from "./Search";
+import Sort from "./Sort";
 
-import CurrencyChange from './CurrencyChange';
+import CurrencyChange from "./CurrencyChange";
 
 function Filter() {
-
   return (
-    <div className='w-full h-full  border-2 border-[#808080] rounded-lg flex items-center justify-between relative space-x-3'>
-        <Search/>
+    <div
+      className="w-full h-full border-2 border-gray-100 rounded-lg
+  flex flex-col md:flex-row items-center justify-between relative
+  "
+    >
+      <Search />
       <CurrencyChange />
-       <Sort />    
+      <Sort />
     </div>
-  )
+  );
 }
 
-export default Filter
+export default Filter;

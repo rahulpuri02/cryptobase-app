@@ -28,10 +28,10 @@ const SearchInput = ({handleSearch}) => {
       <>
       <form  onSubmit={handleSubmit} 
       className='w-full relative flex items-center px-2 md:px-4 py-2'>
-      <input onChange={handleInput} value={searchText} className="w-full text-sm rounded bg-gray-200 placeholder:pl-2 outline-0 border border-transparent
-      focus:border-[#808080]" type="text" name="search" placeholder='search'/>
+      <input onChange={handleInput} value={searchText} className="w-full text-md rounded bg-gray-200 placeholder:pl-2 outline-0 border border-transparent
+      focus:border-[#808080]" type="text" name="search" placeholder='search coin...'/>
       <button className="absolute right-2 md:right-5" type="submit">
-      <BiSearch className='w-4 h-auto cursor-pointer'/>
+      <BiSearch className='w-4 md:w-5 mr-1 h-auto cursor-pointer'/>
       </button>
      </form>
      {

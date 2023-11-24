@@ -10,10 +10,18 @@ const Sort = () => {
         let val = e.target.value;
         setSortBy(val);
        }
+
   return (
-    <label className='relative md:flex justify-center items-center mr-2'>
-    <span className='font-semibold text-xs md:text-sm  mr-2 md:mr-2 lg:mr-3'>Sort By: </span>
-     <select onClick={handleSort} className='rounded bg-gray-200 text-xs md:text-sm  p-0.5 md:px-1 md:py-0.5 font-normal capitalize outline-0 focus:border mr-4' name="sortby" >
+    <label className="w-full relative flex justify-center items-center  md:my-3 md:mr-3 mb-3">
+    <span className="mr-2">Sort:</span>
+    <select
+      name="sortby"
+      className="w-[85%] md:w-full rounded bg-gray-200 text-base 
+   pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-0
+   "
+      onClick={handleSort}
+    >
+
        {/*market_cap_desc, gecko_desc, gecko_asc, market_cap_asc, market_cap_desc, id_asc, id_desc */}
        <option value="market_cap_desc">market cap desc</option>
             <option value="market_cap_asc">market cap asc</option>

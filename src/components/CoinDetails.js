@@ -24,7 +24,7 @@ const CoinDetails = () => {
     <div className='fixed top-0 w-full h-full bg-gray-200 bg-opacity-30 first-letter:first-line:
     backdrop-blur-sm flex items-center justify-center'
     onClick={close}>
-        <div onClick={(e) => e.stopPropagation()} className=' w-full h-full sm:w-[95%] md:w-[85%] md:h-[70%] lg:h-[70%] lg:w-[60%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative'>
+        <div onClick={(e) => e.stopPropagation()} className=' w-full h-full sm:w-[95%] md:w-[85%] md:h-[70%] lg:h-[75%] lg:w-[60%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative'>
         {
             coin ? <div className='flex flex-col md:flex-row items-center justify-between h-full w-full p-4 overflow-y-scroll md:overflow-y-hidden'>
            
