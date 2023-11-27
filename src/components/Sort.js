@@ -12,12 +12,12 @@ const Sort = () => {
        }
 
   return (
-    <label className="w-full relative flex justify-center items-center  md:my-3 md:mr-3 mb-3">
+    <label className="w-full relative flex justify-center items-center  md:my-3 ml-2 mb-3">
     <span className="mr-2">Sort:</span>
     <select
       name="sortby"
       className="w-[85%] md:w-full rounded bg-gray-200 text-base 
-   pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-0
+   pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-0 mr-3 md:mr-0
    "
       onClick={handleSort}
     >
